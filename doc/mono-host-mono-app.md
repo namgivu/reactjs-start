@@ -28,7 +28,7 @@ cd /var/www
 server {
   listen 80 default_server;
   root /var/www/my-app/build;
-  server_name create-react-app.gigacover.com create-react-app2.gigacover.com;
+  server_name create-react-app.some-domain.com create-react-app2.some-domain.com;
 
   index index.html index.htm;
   location / {
@@ -47,6 +47,6 @@ cd -
 sudo service nginx stop
 sudo service nginx start
 
-: we should see create-react-app now at create-react-app.gigacover.com create-react-app2.gigacover.com
+: we should see create-react-app now at create-react-app.some-domain.com create-react-app2.some-domain.com
 
 ```

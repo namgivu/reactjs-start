@@ -49,9 +49,8 @@ EOF
     sudo systemctl restart nginx
   }
 
-  s='/var/www/myapp1/build'; d='create-react-app1.gigacover.com'; my-deploy-site $s $d
-  s='/var/www/myapp2/build'; d='create-react-app2.gigacover.com'; my-deploy-site $s $d
-  
+  s='/var/www/myapp1/build'; d='myapp1.some-domain.com'; my-deploy-site $s $d
+  s='/var/www/myapp2/build'; d='myapp2.some-domain.com'; my-deploy-site $s $d
 
 : allow ingres firewall for HTTP if you are using instance@gcloud like me
 
@@ -62,26 +61,6 @@ sudo service nginx start
 sudo service nginx restart
 
 
-: we should see create-react-app now at create-react-app.gigacover.com create-react-app2.gigacover.com
-
-```
-
-```bash
-function abb() {
-  tee /tmp/nn <<EOF
-server {
-  listen 80 default_server;
-  root $app_source;
-  server_name $app_domain;
-  
-  index index.html index.htm;
-  location / {
-    try_files \$uri /index.html;
-    add_header Cache-Control no-cache;
-  }
-}
-EOF
-}
-abb
+: we should see create-react-app now at myapp1.some-domain.com myapp2.some-domain.com
 
 ```
